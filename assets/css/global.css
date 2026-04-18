@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   /* Core palette: warm neutrals + restrained sage (green as accent only) */
   --green-900: #152018;
   --green-800: #1e2e24;
@@ -70,6 +71,12 @@ img {
   height: auto;
 }
 
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
 body.menu-open {
   overflow: hidden;
 }
@@ -125,6 +132,8 @@ a {
 .container {
   max-width: 1160px;
   margin: 0 auto;
+  width: 100%;
+  min-width: 0;
   padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
   padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
 }
@@ -132,6 +141,8 @@ a {
 .container--narrow {
   max-width: 780px;
   margin: 0 auto;
+  width: 100%;
+  min-width: 0;
   padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
   padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
 }
