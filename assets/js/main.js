@@ -9,18 +9,30 @@ const mobileMenu = document.getElementById("mobileMenu");
 function closeMobileMenu() {
   if (!mobileMenu || !hamburger) return;
   mobileMenu.classList.remove("open");
+  mobileMenu.style.display = "none";
   hamburger.classList.remove("active");
   document.body.classList.remove("menu-open");
   hamburger.setAttribute("aria-expanded", "false");
 }
 
 if (hamburger && mobileMenu) {
+  mobileMenu.style.display = "none";
+
   hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
     const open = mobileMenu.classList.toggle("open");
+    mobileMenu.style.display = open ? "block" : "none";
     hamburger.classList.toggle("active", open);
     document.body.classList.toggle("menu-open", open);
     hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  document.addEventListener("click", (e) => {
+    const clickInsideMenu = mobileMenu.contains(e.target);
+    const clickOnHamburger = hamburger.contains(e.target);
+    if (!clickInsideMenu && !clickOnHamburger && mobileMenu.classList.contains("open")) {
+      closeMobileMenu();
+    }
   });
 
   mobileMenu.querySelectorAll("a").forEach((link) => {

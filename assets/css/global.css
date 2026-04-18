@@ -54,6 +54,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -62,6 +63,11 @@ body {
   color: var(--text-primary);
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 body.menu-open {
