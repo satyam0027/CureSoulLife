@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link
+        href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap'
+        rel='stylesheet'>
+    <link rel='stylesheet' href='./assets/css/global.css'>
+    <link rel='stylesheet' href='./assets/css/components.css'>
+    <link rel='stylesheet' href='./assets/css/animations.css'>
+    <title>CureSoulLife.org - Decode Your Life</title>
+    <meta name='description'
+        content='A global institution integrating spirituality, psychology, and ancient wisdom for conscious evolution.'>
+</head>
+
+<body>
+    <nav class='navbar' id='navbar'>
+        <div class='navbar__inner container'><a href='./index.html' class='navbar__logo'><img
+                    src='./assets/images/logo.png' width='280' height='80'
+                    alt='CureSoulLife — सृजन, साधना और मोक्ष' decoding='async' fetchpriority='high'></a>
+            <ul class='navbar__menu'>
+                <li><a href='./index.html'>Home</a></li>
+                <li class='has-dropdown'><a href='./about/index.html'>About</a>
+                    <div class='dropdown'><a href='./about/index.html'>About CureSoulLife</a><a
+                            href='./about/mission.html'>Mission</a><a href='./about/vision.html'>Vision</a><a
+                            href='./about/philosophy.html'>Philosophy</a><a href='./about/the-movement.html'>The
+                            Movement</a><a href='./about/core-values.html'>Core Values</a></div>
+                </li>
+                <li class='has-dropdown'><a href='./framework/index.html'>Framework</a>
+                    <div class='dropdown'><a href='./framework/index.html'>Overview</a><a
+                            href='./framework/five-dimensions.html'>Five Dimensions</a><a
+                            href='./framework/human-suffering.html'>Human Suffering</a><a
+                            href='./framework/life-purpose.html'>Life Purpose</a><a
+                            href='./framework/methodology.html'>Methodology</a></div>
+                </li>
+                <li class='has-dropdown'><a href='./knowledge/index.html'>Knowledge</a>
+                    <div class='dropdown'><a href='./knowledge/spiritual-wisdom.html'>Spiritual Wisdom</a><a
+                            href='./knowledge/human-psychology.html'>Human Psychology</a><a
+                            href='./knowledge/astrology-destiny.html'>Astrology &amp; Destiny</a><a
+                            href='./knowledge/philosophy-of-life.html'>Philosophy of Life</a><a
+                            href='./knowledge/tantra-energy.html'>Tantra &amp; Energy</a><a
+                            href='./knowledge/case-studies.html'>Case Studies</a></div>
+                </li>
+                <li class='has-dropdown'><a href='./practices/index.html'>Practices</a>
+                    <div class='dropdown'><a href='./practices/yoga.html'>Yoga</a><a
+                            href='./practices/meditation.html'>Meditation</a><a
+                            href='./practices/breathwork.html'>Breathwork</a><a
+                            href='./practices/energy-practices.html'>Energy Practices</a><a
+                            href='./practices/detoxification.html'>Detoxification</a></div>
+                </li>
+                <li class='has-dropdown'><a href='./retreats/index.html'>Retreats</a>
+                    <div class='dropdown'><a href='./retreats/consciousness-retreat.html'>Consciousness Retreat</a><a
+                            href='./retreats/youth-transformation.html'>Youth Transformation</a><a
+                            href='./retreats/women-awakening.html'>Women Awakening</a><a
+                            href='./retreats/corporate-leadership.html'>Corporate Leadership</a><a
+                            href='./retreats/silence-retreat.html'>Silence Retreat</a><a
+                            href='./retreats/index.html'>View All Retreats -&gt;</a></div>
+                </li>
+                <li class='has-dropdown'><a href='./centers/index.html'>Centers</a>
+                    <div class='dropdown'><a href='./centers/india.html'>India</a><a
+                            href='./centers/dubai.html'>Dubai</a><a href='./centers/vietnam.html'>Vietnam</a><a
+                            href='./centers/uae.html'>UAE</a><a href='./centers/upcoming.html'>Upcoming Centers</a>
+                    </div>
+                </li>
+                <li><a href='./research/index.html'>Research</a></li>
+                <li><a href='./community/index.html'>Community</a></li>
+                <li><a href='./join/index.html'>Join</a></li>
+            </ul>
+            <div class='navbar__end'><a href='./retreats/index.html' class='btn btn--primary btn--sm navbar__book'>Book a
+                    Retreat</a><button
+                type='button'
+                class='navbar__hamburger' id='hamburger'
+                aria-label='Open menu' aria-expanded='false' aria-controls='mobileMenu'><span></span><span></span><span></span></button>
+            </div>
+        </div>
+        <div class='mobile-menu' id='mobileMenu' role='dialog' aria-label='Site navigation'>
+            <div class='mobile-menu__inner'>
+                <a href='./index.html'>Home</a>
+                <div class='mobile-accordion'><button class='accordion-trigger'>About</button>
+                    <div class='accordion-panel'><a href='./about/index.html'>About CureSoulLife</a><a
+                            href='./about/mission.html'>Mission</a><a href='./about/vision.html'>Vision</a><a
+                            href='./about/philosophy.html'>Philosophy</a><a href='./about/the-movement.html'>The
+                            Movement</a><a href='./about/core-values.html'>Core Values</a></div>
+                </div>
+                <div class='mobile-accordion'><button class='accordion-trigger'>Framework</button>
+                    <div class='accordion-panel'><a href='./framework/index.html'>Overview</a><a
+                            href='./framework/five-dimensions.html'>Five Dimensions</a><a
+                            href='./framework/human-suffering.html'>Human Suffering</a><a
+                            href='./framework/life-purpose.html'>Life Purpose</a><a
+                            href='./framework/methodology.html'>Methodology</a></div>
+                </div>
+                <div class='mobile-accordion'><button type='button' class='accordion-trigger'>Knowledge</button>
+                    <div class='accordion-panel'><a href='./knowledge/index.html'>Overview</a><a
+                            href='./knowledge/spiritual-wisdom.html'>Spiritual Wisdom</a><a
+                            href='./knowledge/human-psychology.html'>Human Psychology</a><a
+                            href='./knowledge/astrology-destiny.html'>Astrology &amp; Destiny</a><a
+                            href='./knowledge/philosophy-of-life.html'>Philosophy of Life</a><a
+                            href='./knowledge/tantra-energy.html'>Tantra &amp; Energy</a><a
+                            href='./knowledge/case-studies.html'>Case Studies</a></div>
+                </div><a href='./practices/index.html'>Practices</a><a href='./retreats/index.html'>Retreats</a><a
+                    href='./centers/index.html'>Centers</a><a href='./research/index.html'>Research</a><a
+                    href='./community/index.html'>Community</a><a href='./join/index.html'>Join</a>
+            </div>
+        </div>
+    </nav>
+    <section class='hero reveal'>
+        <div class='hero__lotus'><svg viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg' fill='none'
+                stroke='currentColor' stroke-width='1'>
+                <path d='M50 70 C50 50 40 30 50 10 C60 30 50 50 50 70Z' />
+                <path d='M50 60 C40 50 20 45 15 30 C30 35 45 50 50 60Z' />
+                <path d='M50 55 C35 50 18 35 25 15 C35 30 45 48 50 55Z' />
+                <path d='M50 60 C60 50 80 45 85 30 C70 35 55 50 50 60Z' />
+                <path d='M50 55 C65 50 82 35 75 15 C65 30 55 48 50 55Z' />
+                <line x1='50' y1='70' x2='50' y2='78' />
+                <path d='M30 75 Q50 72 70 75' stroke-linecap='round' />
+            </svg></div>
+        <div class='container hero__grid'>
+            <div class='hero__content'><span class='label' style='color: var(--gold-400);'>CureSoulLife.org · Global
+                    Institute</span>
+                <div class='divider'></div>
+                <h1 class='reveal'>Decode Your Life.<br><em>Transform Your Consciousness.</em></h1>
+                <p class='hero__sub reveal reveal--delay-1'>A global institution led by <strong
+                        style='color: var(--ivory); font-weight: 500;'>Sarvesh Mishra</strong>, integrating science,
+                    spirituality, and technology — guiding individuals from unconscious patterns to conscious evolution
+                    across energy, mind, body, and soul.</p>
+                <p class='hero__tagline-sans reveal reveal--delay-2'>सृजन · साधना · मोक्ष</p>
+                <div class='hero__cta reveal reveal--delay-3'><a href='./framework/index.html'
+                        class='btn btn--primary'>Explore the Framework</a><a href='./join/index.html'
+                        class='btn btn--outline'>Join the Movement</a></div>
+            </div>
+            <div class='hero__media reveal reveal--delay-1'>
+                <div class='media-slot'>
+                    <span class='media-slot__label' style='color: var(--gold-400);'>Hero image · 16:9 or 4:5</span>
+                    <div class='media-slot__frame media-slot__frame--16x9'>
+                        <div class='media-slot__inner'>
+                            <p class='media-slot__hint' style='color: var(--earth-300);'>Place a cinematic, high-resolution
+                                photograph here: soft dawn light over mountains or water; calm, expansive, and timeless.
+                                Mood: stillness, clarity, and global reach — science and spirit in one frame. Avoid busy
+                                crowds or loud colors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='about-intro section--paper reveal'>
+        <div class='container'>
+            <div class='about-intro__grid'>
+                <div class='about-intro__text reveal'><span class='label'>What We Are</span>
+                    <h2>Not a Wellness Brand. A Global Institution.</h2>
+                    <p>CureSoulLife is built on the understanding that human suffering is not merely situational - it is
+                        rooted in unconscious patterns, emotional conditioning, and misalignment between mind, body,
+                        energy, and consciousness.</p>
+                    <p>We decode these patterns and guide individuals toward clarity, balance, and conscious living.</p>
+                    <a href='./about/index.html' class='btn btn--text'>Learn About Our Philosophy -&gt;</a>
+                </div>
+                <div class='about-intro__aside'>
+                    <div class='media-slot reveal'>
+                        <span class='media-slot__label'>Institution &amp; presence</span>
+                        <div class='media-slot__frame media-slot__frame--4x5'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Editorial photograph of a serene teaching or retreat space
+                                    (architecture, natural materials, soft daylight). Conveys permanence, trust, and
+                                    global standards — like a world-class institute, not a casual studio.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='about-intro__stats'>
+                        <div class='stat-card reveal'><span class='stat-card__num'>5</span><span
+                                class='stat-card__label'>Dimensions of Life Framework</span></div>
+                        <div class='stat-card reveal reveal--delay-1'><span class='stat-card__num'>9+</span><span
+                                class='stat-card__label'>Retreat Programs Worldwide</span></div>
+                        <div class='stat-card reveal reveal--delay-2'><span class='stat-card__num'>4</span><span
+                                class='stat-card__label'>Global Centers Active</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='pillar-band section--void reveal'>
+        <div class='container'>
+            <div class='section-header reveal'><span class='label'>Integrated Domains</span>
+                <h2>Energy, Consciousness, Yoga, Meditation &amp; Ayurveda — One Continuum</h2>
+                <p style='color: var(--earth-300); max-width: 720px; margin-left: auto; margin-right: auto;'>These
+                    pillars are not separate “topics.” They are how we work with the whole human being: subtle energy,
+                    awareness, embodied practice, stillness, and living wisdom aligned with nature.</p>
+            </div>
+            <div class='pillar-grid'>
+                <div class='pillar-card reveal'>
+                    <div class='media-slot'>
+                        <span class='media-slot__label'>Energy · image brief</span>
+                        <div class='media-slot__frame media-slot__frame--3x4'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Abstract or symbolic visual of prana / subtle body — soft
+                                    light rays, gentle particle flow, or minimal chakra-inspired art. Calm, non-gimmicky;
+                                    can nod to technology (e.g. faint waveform) to signal measurable energy.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Energy</h3>
+                    <p>Working with life-force, emotional charge, and the subtle field that connects body and mind.</p>
+                </div>
+                <div class='pillar-card reveal reveal--delay-1'>
+                    <div class='media-slot'>
+                        <span class='media-slot__label'>Consciousness · image brief</span>
+                        <div class='media-slot__frame media-slot__frame--3x4'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Spacious, meditative visual — horizon, clear sky, deep
+                                    silence, or abstract depth. Evokes the witness, clarity, and inner space (not
+                                    psychedelic or chaotic).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Consciousness</h3>
+                    <p>The field of awareness itself — observation, insight, and the shift from reaction to presence.</p>
+                </div>
+                <div class='pillar-card reveal reveal--delay-2'>
+                    <div class='media-slot'>
+                        <span class='media-slot__label'>Yoga &amp; meditation · image brief</span>
+                        <div class='media-slot__frame media-slot__frame--3x4'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Dignified asana or seated meditation — neutral attire, clean
+                                    composition, natural light. Professional, timeless; avoid stock-y poses or cluttered
+                                    backgrounds.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Yoga &amp; meditation</h3>
+                    <p>Embodied discipline and inner stillness — structure for the body, silence for the mind.</p>
+                </div>
+                <div class='pillar-card reveal reveal--delay-3'>
+                    <div class='media-slot'>
+                        <span class='media-slot__label'>Ayurveda · image brief</span>
+                        <div class='media-slot__frame media-slot__frame--3x4'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Herbs, copper vessels, healing oils, or seasonal foods in soft
+                                    light — evoking nature-aligned living and classical Ayurveda without cliché “spa”
+                                    kitsch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Ayurveda</h3>
+                    <p>Living wisdom of balance — digestion, rhythm, and harmony between body and environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='founder-intro reveal'>
+        <div class='container'>
+            <div class='founder-intro__grid'>
+                <div class='founder-intro__image reveal'>
+                    <div class='media-slot'>
+                        <span class='media-slot__label'>Founder portrait · 1:1</span>
+                        <div class='founder-ring'><img src='./assets/images/founder-placeholder.jpg'
+                                alt='Sarvesh Mishra — founder of CureSoulLife, life decoder and inner alchemy architect'>
+                        </div>
+                        <p class='media-slot__hint' style='margin-top: 0.5rem; max-width: 36ch;'>Replace with a
+                            professional head-and-shoulders portrait: confident, warm, minimal background; editorial
+                            quality suitable for international media.</p>
+                    </div>
+                </div>
+                <div class='founder-intro__text reveal'><span class='label' style='color: var(--gold-500);'>Founder
+                        &amp; guiding intelligence</span>
+                    <h2 style='color: var(--earth-900);'>Sarvesh Mishra</h2>
+                    <h3 style='color: var(--green-700); font-style: italic; font-family: var(--font-serif);'>Life
+                        Decoder · Inner Alchemy Architect · Global Teacher</h3>
+                    <div class='divider'></div>
+                    <p style='color: var(--earth-700);'>Sarvesh Mishra is the founder and intellectual anchor of
+                        CureSoulLife — a voice trusted across cultures for integrating <strong>rigorous inner science</strong>
+                        with <strong>lived spiritual depth</strong>. He is not a performative guru; he is a precise guide
+                        for those ready to observe their own mind, energy, and consciousness with honesty.</p>
+                    <p style='color: var(--earth-700);'>His work bridges classical yogic and Ayurvedic insight with modern
+                        psychology and neuroscience — so transformation is both mystical and intelligible.</p><a
+                        href='./founder/index.html' class='btn btn--primary'>Meet Sarvesh Mishra</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='framework-preview section--sand reveal'>
+        <div class='container'>
+            <div class='section-header reveal'><span class='label'>Our Foundation</span>
+                <h2>The Life Decoding Framework</h2>
+                <p>Human life understood through five core dimensions - each interlocked, each essential.</p>
+            </div>
+            <div class='dimensions-grid reveal'>
+                <div class='dimension-card reveal'>
+                    <h3>Mind</h3>
+                    <p>The seat of thought, belief, and unconscious conditioning that shapes all experience.</p>
+                </div>
+                <div class='dimension-card reveal'>
+                    <h3>Body</h3>
+                    <p>The physical vessel that holds trauma, memory, and the wisdom of lived experience.</p>
+                </div>
+                <div class='dimension-card reveal'>
+                    <h3>Energy</h3>
+                    <p>The pranic field governing vitality, emotion, and the flow of consciousness.</p>
+                </div>
+                <div class='dimension-card reveal'>
+                    <h3>Karma</h3>
+                    <p>Patterns carried across time - the invisible architecture of cause and consequence.</p>
+                </div>
+                <div class='dimension-card reveal'>
+                    <h3>Consciousness</h3>
+                    <p>The awareness behind all experience - the source, the witness, and the destination.</p>
+                </div>
+            </div>
+            <div class='media-slot reveal' style='margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;'>
+                <span class='media-slot__label'>Framework diagram / infographic</span>
+                <div class='media-slot__frame media-slot__frame--16x9'>
+                    <div class='media-slot__inner'>
+                        <p class='media-slot__hint'>Commission a clean vector or illustrated diagram showing the five
+                            dimensions (Mind · Body · Energy · Karma · Consciousness) as an interlocking system — premium,
+                            minimal, suitable for print and keynote. Optional: subtle icons for science + spirituality.</p>
+                    </div>
+                </div>
+            </div>
+            <div style='text-align:center; margin-top:2rem;'><a href='./framework/index.html'
+                    class='btn btn--primary'>Explore the Full Framework</a></div>
+        </div>
+    </section>
+    <section class='section--void reveal'>
+        <div class='container'>
+            <div class='two-col two-col--science'>
+                <div class='media-slot reveal'>
+                    <span class='media-slot__label'>Science × consciousness · hero visual</span>
+                    <div class='media-slot__frame media-slot__frame--4x5'>
+                        <div class='media-slot__inner'>
+                            <p class='media-slot__hint'>Split-theme image: one side suggestive of neuroscience / lab
+                                clarity (neural imagery, clean data visualization aesthetic); other side organic / ancient
+                                manuscript / meditation silhouette — blended tastefully. Overall: “two languages, one
+                                truth.”</p>
+                        </div>
+                    </div>
+                </div>
+                <div class='science-copy'>
+                    <span class='label' style='color: var(--gold-400);'>Science &amp; Consciousness</span>
+                    <h2 style='color: var(--ivory);'>Where Ancient Wisdom Meets Modern Science</h2>
+                    <p style='color: var(--earth-300);'>CureSoulLife bridges validated scientific research with
+                        time-tested ancient knowledge — to reveal the deeper unity beneath both.</p>
+                    <div class='science-pillars' style='margin-top: 1.25rem;'>
+                        <div class='pillar'><span>Neuroscience of Meditation</span></div>
+                        <div class='pillar'><span>Psychology of Consciousness</span></div>
+                        <div class='pillar'><span>Human Energy System</span></div>
+                        <div class='pillar'><span>Ancient Knowledge Systems</span></div>
+                    </div>
+                    <a href='./science-consciousness/index.html' class='btn btn--outline-light'
+                        style='margin-top: 1.5rem; display: inline-block;'>Explore This Domain -&gt;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='transformation-path section--paper reveal'>
+        <div class='container--narrow' style='text-align:center;'><span class='label'>The Journey</span>
+            <h2>The Human Transformation Path</h2>
+            <p style='color: var(--earth-600); margin-top: 0.75rem;'>A clear arc from unconscious reaction to conscious
+                creation — the emotional spine of the CureSoulLife experience.</p>
+        </div>
+        <div class='container'>
+            <div class='media-slot reveal' style='margin: 2rem 0 2.5rem;'>
+                <span class='media-slot__label'>Journey banner · ultra-wide optional</span>
+                <div class='media-slot__frame media-slot__frame--16x9'>
+                    <div class='media-slot__inner'>
+                        <p class='media-slot__hint'>Panoramic photograph or abstract gradient suggesting passage — path,
+                            river, or subtle transition from shadow to light. Used behind or above the steps once real
+                            imagery is available.</p>
+                    </div>
+                </div>
+            </div>
+            <div class='path-steps'>
+                <div class='path-step reveal'>
+                    <div class='path-step__num'>01</div>
+                    <div class='path-step__connector'></div>
+                    <h4>Awareness</h4>
+                    <p>Recognising patterns that govern unconscious living.</p>
+                </div>
+                <div class='path-step reveal'>
+                    <div class='path-step__num'>02</div>
+                    <div class='path-step__connector'></div>
+                    <h4>Understanding</h4>
+                    <p>Decoding the root causes of suffering and limitation.</p>
+                </div>
+                <div class='path-step reveal'>
+                    <div class='path-step__num'>03</div>
+                    <div class='path-step__connector'></div>
+                    <h4>Practice</h4>
+                    <p>Applying inner tools - yoga, meditation, breathwork, energy work.</p>
+                </div>
+                <div class='path-step reveal'>
+                    <div class='path-step__num'>04</div>
+                    <h4>Transformation</h4>
+                    <p>Living from clarity, alignment, and conscious intention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='section--void-soft reveal'>
+        <div class='container'>
+            <div class='section-header'><span class='label' style='color: var(--gold-400);'>Inner Practices</span>
+                <h2 style='color: var(--ivory);'>Practices That Build Inner Stability</h2>
+                <p style='color: var(--earth-300); max-width: 640px; margin: 0.75rem auto 0;">Embodied tools that align
+                    technology of breath, body, and awareness — always in service of clarity, not dependency.</p>
+            </div>
+            <div class='media-slot reveal' style='margin-bottom: 2rem; max-width: 960px; margin-left: auto; margin-right: auto;'>
+                <span class='media-slot__label'>Practices collage or single hero</span>
+                <div class='media-slot__frame media-slot__frame--16x9'>
+                    <div class='media-slot__inner'>
+                        <p class='media-slot__hint'>Either one composed image of yoga / pranayama / stillness in nature,
+                            or a restrained triptych (three panels) for Yoga · Breath · Energy. Cohesive color grade;
+                            premium editorial style.</p>
+                    </div>
+                </div>
+            </div>
+            <div class='cards-grid'>
+                <div class='card reveal'>
+                    <h3>Yoga</h3>
+                    <p>Structural work for body awareness and alignment.</p>
+                </div>
+                <div class='card reveal'>
+                    <h3>Meditation</h3>
+                    <p>Direct cultivation of observation and stillness.</p>
+                </div>
+                <div class='card reveal'>
+                    <h3>Breathwork</h3>
+                    <p>Regulation of energy and emotional states.</p>
+                </div>
+                <div class='card reveal'>
+                    <h3>Energy Practices</h3>
+                    <p>Subtle system balancing through disciplined methods.</p>
+                </div>
+                <div class='card reveal'>
+                    <h3>Detoxification</h3>
+                    <p>Support for physiological and mental clearing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='section--sand reveal'>
+        <div class='container'>
+            <div class='section-header'><span class='label'>Retreats</span>
+                <h2>Immersive Retreat Experiences</h2>
+            </div>
+            <div class='cards-grid'>
+                <div class='retreat-card reveal'>
+                    <div class='media-slot'>
+                        <span class='media-slot__label'>Retreat · Rishikesh</span>
+                        <div class='media-slot__frame media-slot__frame--16x9'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Himalayan foothills, river, or ashram-adjacent calm; people
+                                    optional in background. Mood: depth and silence.</p>
+                            </div>
+                        </div>
+                    </div><span class='badge'>Rishikesh</span>
+                    <h3>Consciousness Retreat</h3>
+                    <p>Deep work on awareness, patterns, and embodied stillness.</p><a
+                        href='./retreats/consciousness-retreat.html' class='btn btn--text'>Learn More</a>
+                </div>
+                <div class='retreat-card reveal'>
+                    <div class='media-slot'>
+                        <span class='media-slot__label'>Retreat · Pune</span>
+                        <div class='media-slot__frame media-slot__frame--16x9'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Urban-nature blend or learning circle — youthful, serious,
+                                    forward-looking (not party / not chaotic).</p>
+                            </div>
+                        </div>
+                    </div><span class='badge'>Pune</span>
+                    <h3>Youth Transformation</h3>
+                    <p>Clarity tools for identity, energy, and direction in life.</p><a
+                        href='./retreats/youth-transformation.html' class='btn btn--text'>Learn More</a>
+                </div>
+                <div class='retreat-card reveal'>
+                    <div class='media-slot'>
+                        <span class='media-slot__label'>Retreat · Goa</span>
+                        <div class='media-slot__frame media-slot__frame--16x9'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Coastal stillness — empty shore, palms, soft dusk. Evokes
+                                    silence retreat, not tourism.</p>
+                            </div>
+                        </div>
+                    </div><span class='badge'>Goa</span>
+                    <h3>Silence Retreat</h3>
+                    <p>A guided container for stillness, observation, and insight.</p><a
+                        href='./retreats/silence-retreat.html' class='btn btn--text'>Learn More</a>
+                </div>
+            </div>
+            <div style='text-align:center; margin-top:2rem;'><a href='./retreats/index.html'
+                    class='btn btn--primary'>View All Retreats</a></div>
+        </div>
+    </section>
+    <section class='section--void reveal'>
+        <div class='container'>
+            <div class='section-header'><span class='label' style='color: var(--gold-400);'>Global Presence</span>
+                <h2 style='color: var(--ivory);'>Centers Across Regions</h2>
+                <p style='color: var(--earth-300); max-width: 640px; margin: 0.75rem auto 0;">Each region carries the same
+                    standard of depth — adapted thoughtfully to culture and context.</p>
+            </div>
+            <div class='media-slot reveal' style='margin-bottom: 2rem; max-width: 960px; margin-left: auto; margin-right: auto;'>
+                <span class='media-slot__label'>World map or regional montage</span>
+                <div class='media-slot__frame media-slot__frame--16x9'>
+                    <div class='media-slot__inner'>
+                        <p class='media-slot__hint'>Stylized world map with elegant markers, or a refined photo grid of
+                            four regions (architecture / landscape hints). Should read “global institution,” not travel
+                            brochure.</p>
+                    </div>
+                </div>
+            </div>
+            <div class='dark-grid'>
+                <div class='location-card reveal'>
+                    <div class='media-slot' style='margin-bottom: 0.75rem;'>
+                        <span class='media-slot__label' style='color: var(--gold-400);'>India · thumbnail</span>
+                        <div class='media-slot__frame media-slot__frame--16x9'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Iconic Indian landscape or flagship center exterior.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>India</h3>
+                    <p>Core teaching and retreat headquarters.</p>
+                </div>
+                <div class='location-card reveal'>
+                    <div class='media-slot' style='margin-bottom: 0.75rem;'>
+                        <span class='media-slot__label' style='color: var(--gold-400);'>Dubai · thumbnail</span>
+                        <div class='media-slot__frame media-slot__frame--16x9'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Skyline at golden hour (restrained) or serene indoor program
+                                    space.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Dubai</h3>
+                    <p>Programs focused on professionals and families.</p>
+                </div>
+                <div class='location-card reveal'>
+                    <div class='media-slot' style='margin-bottom: 0.75rem;'>
+                        <span class='media-slot__label' style='color: var(--gold-400);'>Vietnam · thumbnail</span>
+                        <div class='media-slot__frame media-slot__frame--16x9'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Nature-forward or community gathering — warm, human scale.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Vietnam</h3>
+                    <p>Regional initiatives for conscious communities.</p>
+                </div>
+                <div class='location-card reveal'>
+                    <div class='media-slot' style='margin-bottom: 0.75rem;'>
+                        <span class='media-slot__label' style='color: var(--gold-400);'>UAE · thumbnail</span>
+                        <div class='media-slot__frame media-slot__frame--16x9'>
+                            <div class='media-slot__inner'>
+                                <p class='media-slot__hint'>Desert horizon, modern minimal venue, or contemplative interior.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>UAE</h3>
+                    <p>Expanding access to structured inner work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='section--paper reveal'>
+        <div class='container'>
+            <div class='section-header'><span class='label'>Knowledge Hub</span>
+                <h2>Explore the Knowledge Domains</h2>
+            </div>
+            <div class='media-slot reveal' style='margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;'>
+                <span class='media-slot__label'>Knowledge hub · optional header visual</span>
+                <div class='media-slot__frame media-slot__frame--16x9'>
+                    <div class='media-slot__inner'>
+                        <p class='media-slot__hint'>Library, manuscripts, or abstract “network of ideas” — intellect +
+                            soul. Optional; can remain placeholder until art direction is finalized.</p>
+                    </div>
+                </div>
+            </div>
+            <div class='topic-tiles'><a class='topic-tile reveal' href='./knowledge/spiritual-wisdom.html'>Spiritual
+                    Wisdom</a><a class='topic-tile reveal' href='./knowledge/human-psychology.html'>Human
+                    Psychology</a><a class='topic-tile reveal' href='./knowledge/astrology-destiny.html'>Astrology &amp;
+                    Destiny</a><a class='topic-tile reveal' href='./knowledge/philosophy-of-life.html'>Philosophy of
+                    Life</a><a class='topic-tile reveal' href='./knowledge/tantra-energy.html'>Tantra &amp; Energy</a><a
+                    class='topic-tile reveal' href='./knowledge/case-studies.html'>Case Studies</a></div>
+        </div>
+    </section>
+    <section class='section--void-soft reveal'>
+        <div class='container'>
+            <div class='section-header'><span class='label' style='color: var(--gold-400);'>Community</span>
+                <h2 style='color: var(--ivory);'>A Living Network of Practice</h2>
+            </div>
+            <div class='media-slot reveal' style='margin-bottom: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;'>
+                <span class='media-slot__label'>Community · togetherness</span>
+                <div class='media-slot__frame media-slot__frame--16x9'>
+                    <div class='media-slot__inner'>
+                        <p class='media-slot__hint'>Circle of practitioners in dialogue, or hands in meditation — diverse
+                            ages, respectful, non-performative. Emotion: belonging without cultish uniformity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class='dark-grid'>
+                <div class='feature-block reveal'>
+                    <h3>Local Chapters</h3>
+                    <p>Practice circles grounded in observation and dialogue.</p>
+                </div>
+                <div class='feature-block reveal'>
+                    <h3>Events</h3>
+                    <p>Gatherings integrating knowledge with lived inquiry.</p>
+                </div>
+                <div class='feature-block reveal'>
+                    <h3>Stories</h3>
+                    <p>Accounts of sustained inner shifts and integration.</p>
+                </div>
+            </div>
+            <div style='text-align:center; margin-top:2rem;'><a href='./community/index.html'
+                    class='btn btn--outline-light'>Explore Community</a></div>
+        </div>
+    </section>
+    <section class='section--void reveal' style='text-align:center; border-top: 1px solid rgba(255,255,255,0.06);'>
+        <div class='container--narrow'>
+            <h2 style='color: var(--ivory);'>Join the Movement for Conscious Human Development</h2>
+            <p style='color: var(--earth-300);'>Participate through retreats, study, service, and community engagement.
+            </p>
+            <div class='hero__cta' style='justify-content:center;'><a href='./join/index.html'
+                    class='btn btn--primary'>Join the Movement</a><a href='./contact.html'
+                    class='btn btn--outline-light'>Speak With Us</a></div>
+        </div>
+    </section>
+    <footer class='footer'>
+        <div class='footer__watermark' aria-hidden='true'><svg viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'
+                fill='none' stroke='currentColor' stroke-width='1'>
+                <path d='M50 70 C50 50 40 30 50 10 C60 30 50 50 50 70Z' />
+                <path d='M50 60 C40 50 20 45 15 30 C30 35 45 50 50 60Z' />
+                <path d='M50 55 C35 50 18 35 25 15 C35 30 45 48 50 55Z' />
+                <path d='M50 60 C60 50 80 45 85 30 C70 35 55 50 50 60Z' />
+                <path d='M50 55 C65 50 82 35 75 15 C65 30 55 48 50 55Z' />
+                <line x1='50' y1='70' x2='50' y2='78' />
+                <path d='M30 75 Q50 72 70 75' stroke-linecap='round' />
+            </svg></div>
+        <div class='container'>
+            <div class='footer__top'>
+                <div class='footer__brand'><img src='./assets/images/logo.png' alt='CureSoulLife'
+                        style='filter: brightness(0) invert(1) opacity(0.92);'>
+                    <p class='footer__tagline'>सृजन, साधना और मोक्ष</p>
+                    <p>A global institution for human consciousness and transformation.</p>
+                </div>
+                <div class='footer__col'>
+                    <h5>Know Us</h5><a href='./about/index.html'>About</a><a href='./founder/index.html'>Founder</a><a
+                        href='./about/mission.html'>Mission</a><a href='./about/philosophy.html'>Philosophy</a><a
+                        href='./research/index.html'>Research</a>
+                </div>
+                <div class='footer__col'>
+                    <h5>Explore</h5><a href='./framework/index.html'>Framework</a><a
+                        href='./knowledge/index.html'>Knowledge Hub</a><a
+                        href='./science-consciousness/index.html'>Science &amp; Consciousness</a><a
+                        href='./practices/index.html'>Inner Practices</a>
+                </div>
+                <div class='footer__col'>
+                    <h5>Programs</h5><a href='./retreats/index.html'>All Retreats</a><a
+                        href='./centers/index.html'>Global Centers</a><a href='./community/index.html'>Community</a><a
+                        href='./global-initiatives/index.html'>Initiatives</a>
+                </div>
+                <div class='footer__col'>
+                    <h5>Connect</h5><a href='./join/index.html'>Join the Movement</a><a
+                        href='./contact.html'>Contact</a><a href='./media-press.html'>Media &amp; Press</a><a
+                        href='./join/volunteer.html'>Volunteer</a><a href='./join/partner-with-us.html'>Partner With
+                        Us</a>
+                </div>
+            </div>
+            <div class='footer__divider'></div>
+            <div class='footer__bottom'>
+                <p>&copy; 2026 CureSoulLife.org — सृजन, साधना और मोक्ष</p>
+                <div class='footer__legal'><a href='./privacy-policy.html'>Privacy Policy</a><a
+                        href='./terms-of-use.html'>Terms of Use</a><a href='./media-press.html'>Media &amp; Press</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src='./assets/js/main.js'></script>
+    <script src='./assets/js/scroll-reveal.js'></script>
+</body>
+
+</html>
