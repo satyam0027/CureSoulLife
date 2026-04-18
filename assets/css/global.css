@@ -119,13 +119,23 @@ a {
 .container {
   max-width: 1160px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
 }
 
 .container--narrow {
   max-width: 780px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-left: max(1.25rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.25rem, env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container--narrow {
+    padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
+  }
 }
 
 .divider {

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover'>
     <link rel='preconnect' href='https://fonts.googleapis.com'>
     <link
         href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap'
@@ -17,6 +17,21 @@
 </head>
 
 <body>
+    <!--
+      ═══ HOW TO PUT IMAGES IN THIS PAGE ═══
+      Your pictures must live in the folder:  assets/images/
+
+      STEPS (for every gray “placeholder” box):
+      1) Copy your file into  assets/images/   (example: my-photo.jpg)
+      2) Find the box:  <div class="media-slot__frame media-slot__frame--16x9">  (or --4x5, --3x4)
+      3) DELETE the whole block:  <div class="media-slot__inner"> … </div>  (that is only temporary text)
+      4) INSIDE that same media-slot__frame, add ONE line (edit filename + alt):
+         <img src="./assets/images/my-photo.jpg" alt="Short description of the image" loading="lazy">
+      5) Optional: on that media-slot__frame div, add class  media-slot__frame--photo  (solid border)
+
+      FOUNDER PHOTO: scroll to “founder-ring”. Change only  src="..."  on the existing <img> — do not use media-slot__inner there.
+      The HERO below is already filled in as a live example you can copy to other sections.
+    -->
     <nav class='navbar' id='navbar'>
         <div class='navbar__inner container'><a href='./index.html' class='navbar__logo'><img
                     src='./assets/images/logo.png' width='280' height='80'
@@ -133,14 +148,13 @@
             </div>
             <div class='hero__media reveal reveal--delay-1'>
                 <div class='media-slot'>
-                    <span class='media-slot__label' style='color: var(--gold-400);'>Hero image · 16:9 or 4:5</span>
-                    <div class='media-slot__frame media-slot__frame--16x9'>
-                        <div class='media-slot__inner'>
-                            <p class='media-slot__hint' style='color: var(--earth-300);'>Place a cinematic, high-resolution
-                                photograph here: soft dawn light over mountains or water; calm, expansive, and timeless.
-                                Mood: stillness, clarity, and global reach — science and spirit in one frame. Avoid busy
-                                crowds or loud colors.</p>
-                        </div>
+                    <span class='media-slot__label' style='color: var(--gold-400);'>Hero image</span>
+                    <!-- Example: image sits INSIDE media-slot__frame. Copy this block to other sections (change src + alt). -->
+                    <div
+                        class='media-slot__frame media-slot__frame--16x9 media-slot__frame--photo'>
+                        <img src='./assets/images/meditate.jpg'
+                            alt='Diverse group practicing yoga and meditation together outdoors'
+                            width='1920' height='1080' loading='eager' fetchpriority='high'>
                     </div>
                 </div>
             </div>
@@ -161,11 +175,9 @@
                     <div class='media-slot reveal'>
                         <span class='media-slot__label'>Institution &amp; presence</span>
                         <div class='media-slot__frame media-slot__frame--4x5'>
-                            <div class='media-slot__inner'>
-                                <p class='media-slot__hint'>Editorial photograph of a serene teaching or retreat space
-                                    (architecture, natural materials, soft daylight). Conveys permanence, trust, and
-                                    global standards — like a world-class institute, not a casual studio.</p>
-                            </div>
+                            <img src='./assets/images/yoga.jpg'
+                            alt='Diverse group practicing yoga and meditation together outdoors'
+                            width='1920' height='1080' loading='eager' fetchpriority='high'>
                         </div>
                     </div>
                     <div class='about-intro__stats'>
@@ -253,13 +265,10 @@
             <div class='founder-intro__grid'>
                 <div class='founder-intro__image reveal'>
                     <div class='media-slot'>
-                        <span class='media-slot__label'>Founder portrait · 1:1</span>
+
                         <div class='founder-ring'><img src='./assets/images/founder-placeholder.jpg'
                                 alt='Sarvesh Mishra — founder of CureSoulLife, life decoder and inner alchemy architect'>
                         </div>
-                        <p class='media-slot__hint' style='margin-top: 0.5rem; max-width: 36ch;'>Replace with a
-                            professional head-and-shoulders portrait: confident, warm, minimal background; editorial
-                            quality suitable for international media.</p>
                     </div>
                 </div>
                 <div class='founder-intro__text reveal'><span class='label' style='color: var(--gold-500);'>Founder

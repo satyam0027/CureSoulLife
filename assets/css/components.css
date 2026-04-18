@@ -10,8 +10,24 @@
 .btn--sm { padding: 0.5rem 1.25rem; font-size: 0.8rem; }
 
 body.menu-open .navbar { background: rgba(18, 22, 20, 0.97); box-shadow: 0 4px 24px rgba(0,0,0,0.2); }
-.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0.65rem 0; transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease; background: transparent; }
-.navbar.scrolled { background: rgba(18, 22, 20, 0.92); padding: 0.5rem 0; box-shadow: 0 4px 32px rgba(0,0,0,0.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: max(0.65rem, env(safe-area-inset-top, 0px)) 0 0.65rem;
+  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  background: transparent;
+}
+.navbar.scrolled {
+  background: rgba(18, 22, 20, 0.92);
+  padding: max(0.5rem, env(safe-area-inset-top, 0px)) 0 0.5rem;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
 /* Bar must stack above .mobile-menu or the drawer blocks hamburger clicks */
 .navbar__inner {
   display: flex;
@@ -23,7 +39,10 @@ body.menu-open .navbar { background: rgba(18, 22, 20, 0.97); box-shadow: 0 4px 2
   position: relative;
   z-index: 1002;
 }
-/* Do not let the center nav shrink the logo (was causing tiny logo on wide desktop) */
+/*
+ * Header logo — one treatment on all breakpoints: no chip background, same shadow + fluid height.
+ * Height uses clamp() so phone → desktop scales smoothly without layout jumps.
+ */
 .navbar__logo {
   display: flex;
   align-items: center;
@@ -31,49 +50,22 @@ body.menu-open .navbar { background: rgba(18, 22, 20, 0.97); box-shadow: 0 4px 2
   min-width: 0;
   line-height: 0;
   text-decoration: none;
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  max-width: min(300px, calc(100vw - 10.5rem));
 }
 .navbar__logo img {
   display: block;
-  height: auto;
   width: auto;
+  /* One scale curve: ~44px on narrow phones → ~80px on wide screens */
+  height: clamp(2.75rem, 0.45rem + 4.8vw, 5rem);
   max-width: 100%;
   object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.12));
   -webkit-user-drag: none;
-}
-/* Mobile / tablet: compact plate — tight padding so the mark fills the chip, not empty white */
-@media (max-width: 1399px) {
-  .navbar__logo {
-    max-width: min(200px, calc(100vw - 158px));
-    background: rgba(253, 252, 250, 0.96);
-    padding: 0.12rem 0.35rem;
-    border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    align-items: center;
-    justify-content: center;
-  }
-  .navbar__logo img {
-    height: 44px;
-    width: auto;
-    min-height: 40px;
-    max-height: 48px;
-    max-width: 100%;
-    object-fit: contain;
-    filter: none;
-  }
-}
-@media (min-width: 1400px) {
-  .navbar__logo {
-    max-width: min(360px, 26vw);
-  }
-  .navbar__logo img {
-    height: auto;
-    min-height: 64px;
-    max-height: 88px;
-    width: auto;
-    max-width: min(340px, 24vw);
-    filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.4));
-  }
 }
 .navbar__menu {
   display: flex;
@@ -244,7 +236,23 @@ body.menu-open .navbar { background: rgba(18, 22, 20, 0.97); box-shadow: 0 4px 2
 .media-slot__frame--4x5 { aspect-ratio: 4 / 5; min-height: 220px; }
 .media-slot__frame--1x1 { aspect-ratio: 1 / 1; min-height: 180px; }
 .media-slot__frame--3x4 { aspect-ratio: 3 / 4; min-height: 200px; }
-.media-slot__inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1.25rem; text-align: center; }
+.media-slot__inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1.25rem; text-align: center; z-index: 1; }
+/* When you replace placeholder text with a real photo: put <img> as direct child of .media-slot__frame */
+.media-slot__frame > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+}
+.media-slot__frame.media-slot__frame--photo {
+  border-style: solid;
+  border-color: rgba(61, 92, 72, 0.18);
+  background: rgba(0, 0, 0, 0.12);
+}
 .media-slot__label { font-family: var(--font-body); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-700); font-weight: 500; }
 .section--void .media-slot__label,
 .section--void-soft .media-slot__label { color: var(--gold-400); }
