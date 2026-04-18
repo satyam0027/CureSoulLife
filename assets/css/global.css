@@ -1,5 +1,7 @@
 :root {
+  /* Keep a constant light theme across OS/browser dark mode */
   color-scheme: light;
+  color-scheme: only light;
   /* Core palette: warm neutrals + restrained sage (green as accent only) */
   --green-900: #152018;
   --green-800: #1e2e24;
@@ -64,6 +66,19 @@ body {
   color: var(--text-primary);
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+    color-scheme: only light;
+  }
+
+  html,
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
 }
 
 img {
