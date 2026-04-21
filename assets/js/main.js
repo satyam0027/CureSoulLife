@@ -35,16 +35,70 @@ if (hamburger && mobileMenu) {
     }
   });
 
-  mobileMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      closeMobileMenu();
-    });
+  mobileMenu.addEventListener("click", (e) => {
+    const clickedLink = e.target.closest("a");
+    if (clickedLink) closeMobileMenu();
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMobileMenu();
   });
 }
+
+function buildMissingMobileAccordions() {
+  const desktopMenu = document.querySelector(".navbar__menu");
+  if (!desktopMenu || !mobileMenu) return;
+
+  const mobileInner = mobileMenu.querySelector(".mobile-menu__inner");
+  if (!mobileInner) return;
+
+  const desktopDropdowns = Array.from(desktopMenu.children).filter(
+    (item) => item.classList && item.classList.contains("has-dropdown")
+  );
+  const desktopMap = new Map();
+  desktopDropdowns.forEach((item) => {
+    const topLink = item.querySelector("a");
+    const dropdown = item.querySelector(".dropdown");
+    const dropdownLinks = dropdown ? dropdown.querySelectorAll("a") : [];
+    if (topLink && dropdownLinks.length > 0) {
+      desktopMap.set(topLink.textContent.trim().toLowerCase(), Array.from(dropdownLinks));
+    }
+  });
+
+  ["Practices", "Retreats", "Centers"].forEach((menuName) => {
+    const plainLink = Array.from(mobileInner.children).find(
+      (node) => node.tagName === "A" && node.textContent.trim().toLowerCase() === menuName.toLowerCase()
+    );
+    if (!plainLink) return;
+
+    const sourceLinks = desktopMap.get(menuName.toLowerCase());
+    if (!sourceLinks || sourceLinks.length === 0) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "mobile-accordion";
+
+    const trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "accordion-trigger";
+    trigger.textContent = menuName;
+
+    const panel = document.createElement("div");
+    panel.className = "accordion-panel";
+
+    sourceLinks.forEach((srcLink) => {
+      const link = document.createElement("a");
+      link.href = srcLink.getAttribute("href") || "#";
+      link.textContent = srcLink.textContent || "";
+      panel.appendChild(link);
+    });
+
+    wrapper.appendChild(trigger);
+    wrapper.appendChild(panel);
+    plainLink.replaceWith(wrapper);
+  });
+}
+
+buildMissingMobileAccordions();
 
 document.querySelectorAll(".mobile-menu .accordion-trigger").forEach((btn) => {
   btn.addEventListener("click", () => {

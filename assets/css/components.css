@@ -154,8 +154,8 @@ body.menu-open .navbar {
 .accordion-panel { max-height: 0; overflow: hidden; transition: max-height 0.2s ease; }
 .accordion-panel a { display: block; color: var(--earth-700); text-decoration: none; padding: 0.4rem 0.5rem 0.4rem 1rem; }
 
-/* Below ~1400px the full link row collides — switch to Book + hamburger */
-@media (max-width: 1399px) {
+/* Mobile + tablet nav: show hamburger, keep desktop menu on laptops/desktops */
+@media (max-width: 1024px) {
   .navbar__menu {
     display: none !important;
   }
@@ -177,6 +177,15 @@ body.menu-open .navbar {
     text-align: center;
     white-space: normal;
   }
+}
+
+/* Light cards inside dark sections need dark text for contrast */
+.section--void-soft .cards-grid .card h3 {
+  color: var(--earth-900);
+}
+
+.section--void-soft .cards-grid .card p {
+  color: var(--earth-700);
 }
 
 .footer { background: var(--void); color: var(--earth-300); padding: 5rem 0 2rem; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.06); }
