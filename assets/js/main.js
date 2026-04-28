@@ -113,3 +113,89 @@ document.querySelectorAll(".schedule .accordion-head").forEach((btn) => {
     btn.parentElement.classList.toggle("open");
   });
 });
+
+function initializeLanguageSwitcher() {
+  const languages = [
+    { code: "en", label: "English" },
+    { code: "hi", label: "Hindi" },
+    { code: "vi", label: "Vietnamese" },
+    { code: "ur", label: "Urdu" },
+    { code: "ar", label: "Arabic" },
+  ];
+
+  const switcher = document.createElement("div");
+  switcher.className = "language-switcher";
+  switcher.innerHTML = `
+    <button type="button" class="language-switcher__button" aria-expanded="false" aria-label="Select language">
+      Language
+    </button>
+    <div class="language-switcher__menu" aria-hidden="true">
+      ${languages
+        .map(
+          (lang) =>
+            `<button type="button" class="language-switcher__option" data-lang="${lang.code}">${lang.label}</button>`
+        )
+        .join("")}
+    </div>
+  `;
+
+  document.body.appendChild(switcher);
+
+  const toggleButton = switcher.querySelector(".language-switcher__button");
+  const menu = switcher.querySelector(".language-switcher__menu");
+  const options = switcher.querySelectorAll(".language-switcher__option");
+
+  function setOpenState(open) {
+    switcher.classList.toggle("open", open);
+    toggleButton.setAttribute("aria-expanded", open ? "true" : "false");
+    menu.setAttribute("aria-hidden", open ? "false" : "true");
+  }
+
+  toggleButton.addEventListener("click", () => {
+    const isOpen = switcher.classList.contains("open");
+    setOpenState(!isOpen);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!switcher.contains(event.target)) setOpenState(false);
+  });
+
+  function applyLanguage(langCode) {
+    const googleSelect = document.querySelector(".goog-te-combo");
+    if (!googleSelect) return;
+    googleSelect.value = langCode;
+    googleSelect.dispatchEvent(new Event("change"));
+    setOpenState(false);
+  }
+
+  options.forEach((button) => {
+    button.addEventListener("click", () => {
+      applyLanguage(button.dataset.lang);
+    });
+  });
+
+  window.googleTranslateElementInit = function () {
+    const container = document.createElement("div");
+    container.id = "google_translate_element";
+    container.style.display = "none";
+    document.body.appendChild(container);
+
+    if (window.google && window.google.translate && window.google.translate.TranslateElement) {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          includedLanguages: languages.map((lang) => lang.code).join(","),
+          autoDisplay: false,
+        },
+        "google_translate_element"
+      );
+    }
+  };
+
+  const script = document.createElement("script");
+  script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  script.async = true;
+  document.head.appendChild(script);
+}
+
+initializeLanguageSwitcher();
