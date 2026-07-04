@@ -1,3 +1,16 @@
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
 const navbar = document.getElementById("navbar");
 window.addEventListener("scroll", () => {
   if (navbar) navbar.classList.toggle("scrolled", window.scrollY > 60);
@@ -151,7 +164,38 @@ function initializeLanguageSwitcher() {
     menu.setAttribute("aria-hidden", open ? "false" : "true");
   }
 
+  let translateLoaded = false;
+
+  function loadGoogleTranslate() {
+    if (translateLoaded) return;
+    translateLoaded = true;
+
+    window.googleTranslateElementInit = function () {
+      const container = document.createElement("div");
+      container.id = "google_translate_element";
+      container.style.display = "none";
+      document.body.appendChild(container);
+
+      if (window.google && window.google.translate && window.google.translate.TranslateElement) {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: languages.map((lang) => lang.code).join(","),
+            autoDisplay: false,
+          },
+          "google_translate_element"
+        );
+      }
+    };
+
+    const script = document.createElement("script");
+    script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    document.head.appendChild(script);
+  }
+
   toggleButton.addEventListener("click", () => {
+    loadGoogleTranslate();
     const isOpen = switcher.classList.contains("open");
     setOpenState(!isOpen);
   });
@@ -170,32 +214,10 @@ function initializeLanguageSwitcher() {
 
   options.forEach((button) => {
     button.addEventListener("click", () => {
+      loadGoogleTranslate();
       applyLanguage(button.dataset.lang);
     });
   });
-
-  window.googleTranslateElementInit = function () {
-    const container = document.createElement("div");
-    container.id = "google_translate_element";
-    container.style.display = "none";
-    document.body.appendChild(container);
-
-    if (window.google && window.google.translate && window.google.translate.TranslateElement) {
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          includedLanguages: languages.map((lang) => lang.code).join(","),
-          autoDisplay: false,
-        },
-        "google_translate_element"
-      );
-    }
-  };
-
-  const script = document.createElement("script");
-  script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-  script.async = true;
-  document.head.appendChild(script);
 }
 
 initializeLanguageSwitcher();

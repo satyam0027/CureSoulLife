@@ -431,8 +431,15 @@ body.menu-open .navbar {
 .media-slot__frame--1x1 { aspect-ratio: 1 / 1; min-height: 180px; }
 .media-slot__frame--3x4 { aspect-ratio: 3 / 4; min-height: 200px; }
 .media-slot__inner { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1.25rem; text-align: center; z-index: 1; }
-/* When you replace placeholder text with a real photo: put <img> as direct child of .media-slot__frame */
-.media-slot__frame > img {
+/* When you replace placeholder text with a real photo: put <img> or <picture> as direct child of .media-slot__frame */
+.media-slot__frame > picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: inherit;
+}
+.media-slot__frame > img,
+.media-slot__frame > picture > img {
   position: absolute;
   inset: 0;
   width: 100%;

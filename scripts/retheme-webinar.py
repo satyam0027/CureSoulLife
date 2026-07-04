@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang='en'>
+"""Retheme webinar pages to match main site."""
+from pathlib import Path
 
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='preconnect' href='https://fonts.googleapis.com'>
-    <link
-        href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap'
-        rel='stylesheet'>
-    <link rel='stylesheet' href='../assets/css/global.css'>
-    <link rel='stylesheet' href='../assets/css/components.css'>
-    <link rel='stylesheet' href='../assets/css/animations.css'>
-    <title>Publications - CureSoulLife</title>
-    <meta name='description'
-        content='Publications at CureSoulLife with grounded insights on patterns, consciousness, and inner alignment.'>
-</head>
+ROOT = Path(__file__).resolve().parents[1]
 
-<body>
-    <nav class='navbar' id='navbar'>
-        <div class='navbar__inner container'><a href='../index.html' class='navbar__logo'><img
-                    src='../assets/images/logo.png' alt='CureSoulLife' height='48'></a>
+NAV = """    <nav class='navbar' id='navbar'>
+        <div class='navbar__inner container'><a href='../index.html' class='navbar__logo'><picture><source srcset='../assets/images/logo.webp' type='image/webp'><img
+                    src='../assets/images/logo.png' width='280' height='80'
+                    alt='CureSoulLife — सृजन, साधना और मोक्ष' loading='eager' fetchpriority='high' decoding='async'></picture></a>
             <ul class='navbar__menu'>
                 <li><a href='../index.html'>Home</a></li>
                 <li class='has-dropdown'><a href='../about/index.html'>About</a>
@@ -66,13 +53,18 @@
                 </li>
                 <li><a href='../research/index.html'>Research</a></li>
                 <li><a href='../community/index.html'>Community</a></li>
+                <li><a href='index.html'>Webinars</a></li>
                 <li><a href='../join/index.html'>Join</a></li>
-            </ul><a href='../retreats/index.html' class='btn btn--primary btn--sm'>Book a Retreat</a><button
+            </ul>
+            <div class='navbar__end'><a href='#registration' class='btn btn--primary btn--sm navbar__book'>Reserve Free Seat</a><button
+                type='button'
                 class='navbar__hamburger' id='hamburger'
-                aria-label='Open menu'><span></span><span></span><span></span></button>
+                aria-label='Open menu' aria-expanded='false' aria-controls='mobileMenu'><span></span><span></span><span></span></button>
+            </div>
         </div>
-        <div class='mobile-menu' id='mobileMenu'>
-            <div class='mobile-menu__inner'><a href='../index.html'>Home</a>
+        <div class='mobile-menu' id='mobileMenu' role='dialog' aria-label='Site navigation'>
+            <div class='mobile-menu__inner'>
+                <a href='../index.html'>Home</a>
                 <div class='mobile-accordion'><button class='accordion-trigger'>About</button>
                     <div class='accordion-panel'><a href='../about/index.html'>About CureSoulLife</a><a
                             href='../about/mission.html'>Mission</a><a href='../about/vision.html'>Vision</a><a
@@ -86,61 +78,24 @@
                             href='../framework/life-purpose.html'>Life Purpose</a><a
                             href='../framework/methodology.html'>Methodology</a></div>
                 </div>
-                <div class='mobile-accordion'><button class='accordion-trigger'>Knowledge</button>
+                <div class='mobile-accordion'><button type='button' class='accordion-trigger'>Knowledge</button>
                     <div class='accordion-panel'><a href='../knowledge/index.html'>Overview</a><a
                             href='../knowledge/spiritual-wisdom.html'>Spiritual Wisdom</a><a
                             href='../knowledge/human-psychology.html'>Human Psychology</a><a
-                            href='../knowledge/astrology-destiny.html'>Astrology &amp; Destiny</a></div>
+                            href='../knowledge/astrology-destiny.html'>Astrology &amp; Destiny</a><a
+                            href='../knowledge/philosophy-of-life.html'>Philosophy of Life</a><a
+                            href='../knowledge/tantra-energy.html'>Tantra &amp; Energy</a><a
+                            href='../knowledge/case-studies.html'>Case Studies</a></div>
                 </div><a href='../practices/index.html'>Practices</a><a href='../retreats/index.html'>Retreats</a><a
                     href='../centers/index.html'>Centers</a><a href='../research/index.html'>Research</a><a
-                    href='../community/index.html'>Community</a><a href='../join/index.html'>Join</a>
+                    href='../community/index.html'>Community</a><a href='index.html'>Webinars</a><a
+                    href='../join/index.html'>Join</a>
             </div>
         </div>
     </nav>
-    <section class='page-hero reveal'>
-        <div class='container'>
-            <nav class='breadcrumb'><a href='../index.html'>Home</a> / <a href='../research/index.html'>Research</a> /
-                <span>Publications</span></nav>
-            <h1>Publications</h1>
-            <p class='page-hero__sub'>Grounded exploration of patterns, consciousness, and practical inner alignment.
-            </p>
-        </div>
-    </section>
-    <main class='page-content'>
-        <div class='container--narrow reveal'>
-            <p>CureSoulLife approaches this domain through observation, rigorous self-study, and integration across
-                mind, body, energy, karma, and consciousness.</p>
-            <p>This space will present precise understanding of inner mechanisms and practical pathways for alignment.
-            </p>
-            <p>Within this framework, transformation is not motivational language; it is cultivated through clarity,
-                practice, and lived discipline.</p>
-        </div>
-    </main>
-    <section class='related-pages reveal'>
-        <div class='container'>
-            <h4>Explore More</h4>
-            <div class='related-grid'><a href='../about/index.html' class='related-card'>
-                    <h3>About CureSoulLife</h3>
-                    <p>Understand the institutional foundation.</p>
-                </a><a href='../framework/index.html' class='related-card'>
-                    <h3>Life Decoding Framework</h3>
-                    <p>See the five-dimension model.</p>
-                </a><a href='../join/index.html' class='related-card'>
-                    <h3>Join the Movement</h3>
-                    <p>Participate in practice and service.</p>
-                </a></div>
-        </div>
-    </section>
-    <section class='bottom-cta reveal'>
-        <div class='container--narrow'>
-            <h2 style='color: var(--ivory);'>Ready to Go Deeper?</h2>
-            <p style='color: var(--earth-300);'>Experience transformation firsthand through an immersive retreat or join
-                our global community.</p>
-            <div style='display:flex; gap:1rem; justify-content:center; margin-top:2rem;'><a
-                    href='../retreats/index.html' class='btn btn--primary'>Explore Retreats</a><a
-                    href='../join/index.html' class='btn btn--outline-light'>Join the Movement</a></div>
-        </div>
-    </section>
+    <main class='webinar-landing'>"""
+
+FOOTER = """    </main>
     <footer class='footer'>
         <div class='footer__watermark' aria-hidden='true'><svg viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'
                 fill='none' stroke='currentColor' stroke-width='1'>
@@ -154,8 +109,8 @@
             </svg></div>
         <div class='container'>
             <div class='footer__top'>
-                <div class='footer__brand'><img src='../assets/images/logo.png' alt='CureSoulLife' height='52'
-                        style='filter: brightness(0) invert(1) opacity(0.9)'>
+                <div class='footer__brand'><picture><source srcset='../assets/images/logo.webp' type='image/webp'><img src='../assets/images/logo.png' alt='CureSoulLife'
+                        style='filter: brightness(0) invert(1) opacity(0.92);' loading='lazy' decoding='async'></picture>
                     <p class='footer__tagline'>सृजन, साधना और मोक्ष</p>
                     <p>A global institution for human consciousness and transformation.</p>
                 </div>
@@ -171,7 +126,7 @@
                         href='../practices/index.html'>Inner Practices</a>
                 </div>
                 <div class='footer__col'>
-                    <h5>Programs</h5><a href='../retreats/index.html'>All Retreats</a><a
+                    <h5>Programs</h5><a href='index.html'>Webinars</a><a href='../retreats/index.html'>All Retreats</a><a
                         href='../centers/index.html'>Global Centers</a><a href='../community/index.html'>Community</a><a
                         href='../global-initiatives/index.html'>Initiatives</a>
                 </div>
@@ -184,15 +139,108 @@
             </div>
             <div class='footer__divider'></div>
             <div class='footer__bottom'>
-                <p>&copy; 2025 CureSoulLife.org - सृजन, साधना और मोक्ष</p>
+                <p>&copy; 2026 CureSoulLife.org — सृजन, साधना और मोक्ष</p>
                 <div class='footer__legal'><a href='../privacy-policy.html'>Privacy Policy</a><a
                         href='../terms-of-use.html'>Terms of Use</a><a href='../media-press.html'>Media &amp; Press</a>
                 </div>
             </div>
         </div>
     </footer>
-    <script src='../assets/js/main.js'></script>
-    <script src='../assets/js/scroll-reveal.js'></script>
-</body>
+    <script src='../assets/js/main.js' defer></script>
+    <script src='../assets/js/webinar.js' defer></script>"""
 
-</html>
+HEAD = """<!DOCTYPE html>
+<html lang='hi'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover'>
+<meta name='color-scheme' content='light'>
+<title>Life Reset™ Masterclass | CureSoulLife</title>
+<meta name='description' content='Sarvesh Mishra के साथ Live Online Masterclass — अपनी ज़िंदगी को पहली बार समझिए। 25 July, 6:00 PM. Registration Free.'>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap' rel='stylesheet' media='print' onload="this.media='all'">
+<noscript><link href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap' rel='stylesheet'></noscript>
+<link rel='stylesheet' href='../assets/css/global.css'>
+<link rel='stylesheet' href='../assets/css/components.css'>
+<link rel='stylesheet' href='../assets/css/animations.css'>
+<link rel='stylesheet' href='../assets/css/webinar.css'>
+</head>
+<body>"""
+
+
+def patch_index() -> None:
+    path = ROOT / "webinar" / "index.html"
+    text = path.read_text(encoding="utf-8")
+
+    # Strip old head/body start through topbar
+    start = text.find("<!-- ============ HERO")
+    hero_on = text[start:]
+
+    text = HEAD + "\n" + NAV + "\n" + hero_on
+
+    text = text.replace("<header class=\"hero\">", "<section class=\"hero reveal\">")
+    text = text.replace("</header>", "</section>", 1)
+
+    replacements = [
+        ('<section class="problem" id="problem">', '<section class="section--paper problem reveal" id="problem">'),
+        ('<section id="big-idea">', '<section class="section--sand reveal" id="big-idea">'),
+        ('<section class="assessment" id="assessment">', '<section class="section--void-soft assessment reveal" id="assessment">'),
+        ('<section id="experience">', '<section class="section--paper reveal" id="experience">'),
+        ('<section id="guide">', '<section class="section--sand reveal" id="guide">'),
+        ('<section id="why-different">', '<section class="section--paper reveal" id="why-different">'),
+        ('<section id="faq">', '<section class="section--sand reveal" id="faq">'),
+        ('<section id="testimonials">', '<section class="section--void-soft reveal" id="testimonials">'),
+        ('<section class="registration" id="registration">', '<section class="section--void registration reveal" id="registration">'),
+        ('class="eyebrow"', 'class="label"'),
+        ('class="btn btn--block"', 'class="btn btn--primary btn--block"'),
+        ('class="btn btn-start"', 'class="btn btn--primary btn-start"'),
+        ('class="btn btn-next"', 'class="btn btn--primary btn-next"'),
+        ('class="btn">', 'class="btn btn--primary">'),
+        ('class="btn" ', 'class="btn btn--primary" '),
+        ('style="color:var(--ink-soft);', 'style="color:var(--earth-300);'),
+        ('style="color:var(--ink-soft)"', 'style="color:var(--earth-300)"'),
+        ('color:var(--gold-deep)', 'color:var(--gold-500)'),
+        ('style=\'margin-top:26px;\'', 'style=\'margin-top:1.5rem;\''),
+    ]
+    for old, new in replacements:
+        text = text.replace(old, new)
+
+    # Replace old footer and scripts
+    footer_start = text.find("<footer>")
+    if footer_start != -1:
+        text = text[:footer_start] + FOOTER + "\n</body>\n</html>\n"
+
+    path.write_text(text, encoding="utf-8")
+    print("patched index.html")
+
+
+def patch_welcome() -> None:
+    path = ROOT / "webinar" / "welcome.html"
+    text = path.read_text(encoding="utf-8")
+    start = text.find("<section class=\"welcome-hero\">")
+    body = text[start:]
+    footer_start = body.find("<footer>")
+    body = body[:footer_start]
+
+    welcome_nav = NAV.replace("href='#registration'", "href='index.html#registration'").replace(
+        "Reserve Free Seat", "View Masterclass"
+    )
+
+    head = HEAD.replace("Life Reset™ Masterclass", "Welcome — Life Reset™").replace(
+        "Sarvesh Mishra", "CureSoulLife"
+    )
+
+    text = head + "\n" + welcome_nav.replace(
+        "class='webinar-landing'>", "class='webinar-landing webinar-welcome'>"
+    ) + "\n" + body + FOOTER + "\n</body>\n</html>\n"
+
+    text = text.replace('class="eyebrow"', 'class="label"')
+    text = text.replace('class="btn btn--ghost"', 'class="btn btn--outline-light"')
+    path.write_text(text, encoding="utf-8")
+    print("patched welcome.html")
+
+
+if __name__ == "__main__":
+    patch_index()
+    patch_welcome()

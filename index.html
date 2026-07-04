@@ -6,9 +6,11 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover'>
     <meta name='color-scheme' content='light'>
     <link rel='preconnect' href='https://fonts.googleapis.com'>
-    <link
-        href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap'
-        rel='stylesheet'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap' rel='stylesheet' media='print' onload="this.media='all'">
+    <noscript><link href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap' rel='stylesheet'></noscript>
+    <link rel='preload' href='./assets/images/meditate.webp' as='image' type='image/webp' fetchpriority='high'>
+    <link rel='preload' href='./assets/images/logo.webp' as='image' type='image/webp'>
     <link rel='stylesheet' href='./assets/css/global.css'>
     <link rel='stylesheet' href='./assets/css/components.css'>
     <link rel='stylesheet' href='./assets/css/animations.css'>
@@ -27,16 +29,16 @@
       2) Find the box:  <div class="media-slot__frame media-slot__frame--16x9">  (or --4x5, --3x4)
       3) DELETE the whole block:  <div class="media-slot__inner"> … </div>  (that is only temporary text)
       4) INSIDE that same media-slot__frame, add ONE line (edit filename + alt):
-         <img src="./assets/images/my-photo.jpg" alt="Short description of the image" loading="lazy">
+         <picture><source srcset='./assets/images/my-photo.webp' type='image/webp'><img src="./assets/images/my-photo.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
       5) Optional: on that media-slot__frame div, add class  media-slot__frame--photo  (solid border)
 
       FOUNDER PHOTO: scroll to “founder-ring”. Change only  src="..."  on the existing <img> — do not use media-slot__inner there.
       The HERO below is already filled in as a live example you can copy to other sections.
     -->
     <nav class='navbar' id='navbar'>
-        <div class='navbar__inner container'><a href='./index.html' class='navbar__logo'><img
+        <div class='navbar__inner container'><a href='./index.html' class='navbar__logo'><picture><source srcset='./assets/images/logo.webp' type='image/webp'><img
                     src='./assets/images/logo.png' width='280' height='80'
-                    alt='CureSoulLife — सृजन, साधना और मोक्ष' decoding='async' fetchpriority='high'></a>
+                    alt='CureSoulLife — सृजन, साधना और मोक्ष' loading='eager' fetchpriority='high' decoding='async'></picture></a>
             <ul class='navbar__menu'>
                 <li><a href='./index.html'>Home</a></li>
                 <li class='has-dropdown'><a href='./about/index.html'>About</a>
@@ -81,8 +83,8 @@
                             href='./centers/uae.html'>UAE</a><a href='./centers/upcoming.html'>Upcoming Centers</a>
                     </div>
                 </li>
-                <li><a href='./research/index.html'>Research</a></li>
                 <li><a href='./community/index.html'>Community</a></li>
+                <li><a href='./webinar/index.html'>Webinars</a></li>
                 <li><a href='./join/index.html'>Join</a></li>
             </ul>
             <div class='navbar__end'><a href='./retreats/index.html' class='btn btn--primary btn--sm navbar__book'>Book a
@@ -117,8 +119,8 @@
                             href='./knowledge/tantra-energy.html'>Tantra &amp; Energy</a><a
                             href='./knowledge/case-studies.html'>Case Studies</a></div>
                 </div><a href='./practices/index.html'>Practices</a><a href='./retreats/index.html'>Retreats</a><a
-                    href='./centers/index.html'>Centers</a><a href='./research/index.html'>Research</a><a
-                    href='./community/index.html'>Community</a><a href='./join/index.html'>Join</a>
+                    href='./centers/index.html'>Centers</a><a
+                    href='./community/index.html'>Community</a><a href='./webinar/index.html'>Webinars</a><a href='./join/index.html'>Join</a>
             </div>
         </div>
     </nav>
@@ -160,9 +162,9 @@
                     <!-- Example: image sits INSIDE media-slot__frame. Copy this block to other sections (change src + alt). -->
                     <div
                         class='media-slot__frame media-slot__frame--16x9 media-slot__frame--photo'>
-                        <img src='./assets/images/meditate.jpg'
+                        <picture><source srcset='./assets/images/meditate.webp' type='image/webp'><img src='./assets/images/meditate.jpg'
                             alt='Diverse group practicing yoga and meditation together outdoors'
-                            width='1920' height='1080' loading='eager' fetchpriority='high'>
+                            width='1920' height='1080' loading='eager' fetchpriority='high' decoding='async'></picture>
                     </div>
                 </div>
             </div>
@@ -183,9 +185,9 @@
                     <div class='media-slot reveal'>
                         <span class='media-slot__label'>Institution &amp; presence</span>
                         <div class='media-slot__frame media-slot__frame--4x5'>
-                            <img src='./assets/images/yoga.jpg'
+                            <picture><source srcset='./assets/images/yoga.webp' type='image/webp'><img src='./assets/images/yoga.jpg'
                             alt='Diverse group practicing yoga and meditation together outdoors'
-                            width='1920' height='1080' loading='eager' fetchpriority='high'>
+                            width='1920' height='1080' loading='lazy' decoding='async'></picture>
                         </div>
                     </div>
                     <div class='about-intro__stats'>
@@ -212,7 +214,7 @@
                 <div class='pillar-card reveal'>
                     <div class='media-slot'>
                         <div class='media-slot__frame media-slot__frame--3x4'>
-                            <img src="./assets/images/prana.jpg" alt="Short description of the image" loading="lazy">
+                            <picture><source srcset='./assets/images/prana.webp' type='image/webp'><img src="./assets/images/prana.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                         </div>
                     </div>
                     <h3>Energy</h3>
@@ -221,7 +223,7 @@
                 <div class='pillar-card reveal reveal--delay-1'>
                     <div class='media-slot'>
                         <div class='media-slot__frame media-slot__frame--3x4'>
-                            <img src="./assets/images/consciousness.jpg" alt="consciousness" loading="lazy">
+                            <picture><source srcset='./assets/images/consciousness.webp' type='image/webp'><img src="./assets/images/consciousness.jpg" alt="consciousness" loading="lazy" decoding='async'></picture>
                         </div>
                     </div>
                     <h3>Consciousness</h3>
@@ -230,7 +232,7 @@
                 <div class='pillar-card reveal reveal--delay-2'>
                     <div class='media-slot'>
                         <div class='media-slot__frame media-slot__frame--3x4'>
-                            <img src="./assets/images/Yoga&Medittion.jpg" alt="Dignified asana or seated meditation — neutral attire, clean composition, natural light. Professional, timeless; avoid stock-y poses or cluttered backgrounds." loading="lazy">
+                            <picture><source srcset='./assets/images/Yoga&Medittion.webp' type='image/webp'><img src="./assets/images/Yoga&Medittion.jpg" alt="Dignified asana or seated meditation — neutral attire, clean composition, natural light. Professional, timeless; avoid stock-y poses or cluttered backgrounds." loading="lazy" decoding='async'></picture>
                         </div>
                     </div>
                     <h3>Yoga &amp; meditation</h3>
@@ -239,7 +241,7 @@
                 <div class='pillar-card reveal reveal--delay-3'>
                     <div class='media-slot'>
                         <div class='media-slot__frame media-slot__frame--3x4'>
-                            <img src="./assets/images/Ayurveda.jpg" alt="Ayurveda" loading="lazy">
+                            <picture><source srcset='./assets/images/Ayurveda.webp' type='image/webp'><img src="./assets/images/Ayurveda.jpg" alt="Ayurveda" loading="lazy" decoding='async'></picture>
                         </div>
                     </div>
                     <h3>Ayurveda</h3>
@@ -254,8 +256,8 @@
                 <div class='founder-intro__image reveal'>
                     <div class='media-slot'>
 
-                        <div class='founder-ring'><img src='./assets/images/founder-placeholder.jpg'
-                                alt='Sarvesh Mishra — founder of CureSoulLife, life decoder and inner alchemy architect'>
+                        <div class='founder-ring'><picture><source srcset='./assets/images/founder-placeholder.webp' type='image/webp'><img src='./assets/images/founder-placeholder.jpg'
+                                alt='Sarvesh Mishra — founder of CureSoulLife, life decoder and inner alchemy architect' loading='lazy' decoding='async'></picture>
                         </div>
                     </div>
                 </div>
@@ -306,7 +308,7 @@
             </div>
             <div class='media-slot reveal' style='margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;'>
                 <div class='media-slot__frame media-slot__frame--16x9'>
-                     <img src="./assets/images/framework.jpg" alt="Short description of the image" loading="lazy">
+                     <picture><source srcset='./assets/images/framework.webp' type='image/webp'><img src="./assets/images/framework.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                 </div>
             </div>
             <div style='text-align:center; margin-top:2rem;'><a href='./framework/index.html'
@@ -318,7 +320,7 @@
             <div class='two-col two-col--science'>
                 <div class='media-slot reveal'>
                     <div class='media-slot__frame media-slot__frame--4x5'>
-                        <img src="./assets/images/ancientvsmodern.jpg" alt="Ancient vs modern Sciencew" loading="lazy">
+                        <picture><source srcset='./assets/images/ancientvsmodern.webp' type='image/webp'><img src="./assets/images/ancientvsmodern.jpg" alt="Ancient vs modern Sciencew" loading="lazy" decoding='async'></picture>
                     </div>
                 </div>
                 <div class='science-copy'>
@@ -347,7 +349,7 @@
         <div class='container'>
             <div class='media-slot reveal' style='margin: 2rem 0 2.5rem;'>
                 <div class='media-slot__frame media-slot__frame--16x9'>
-                     <img src="./assets/images/Pathway.jpg" alt="Short description of the image" loading="lazy">
+                     <picture><source srcset='./assets/images/Pathway.webp' type='image/webp'><img src="./assets/images/Pathway.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                 </div>
             </div>
             <div class='path-steps'>
@@ -386,7 +388,7 @@
             </div>
             <div class='media-slot reveal' style='margin-bottom: 2rem; max-width: 960px; margin-left: auto; margin-right: auto;'>
                 <div class='media-slot__frame media-slot__frame--16x9'>
-                     <img src="./assets/images/practices.jpg" alt="Short description of the image" loading="lazy">
+                     <picture><source srcset='./assets/images/practices.webp' type='image/webp'><img src="./assets/images/practices.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                 </div>
             </div>
             <div class='cards-grid'>
@@ -423,7 +425,7 @@
                     <div class='media-slot'>
                         <span class='media-slot__label'>Retreat · Rishikesh</span>
                         <div class='media-slot__frame media-slot__frame--16x9'>
-                            <img src="./assets/images/Rishikesh.jpg" alt="Short description of the image" loading="lazy">
+                            <picture><source srcset='./assets/images/Rishikesh.webp' type='image/webp'><img src="./assets/images/Rishikesh.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                         </div>
                     </div><span class='badge'>Rishikesh</span>
                     <h3>Consciousness Retreat</h3>
@@ -434,7 +436,7 @@
                     <div class='media-slot'>
                         <span class='media-slot__label'>Retreat · Pune</span>
                         <div class='media-slot__frame media-slot__frame--16x9'>
-                            <img src="./assets/images/Pune.jpg" alt="Short description of the image" loading="lazy">
+                            <picture><source srcset='./assets/images/Pune.webp' type='image/webp'><img src="./assets/images/Pune.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                         </div>
                     </div><span class='badge'>Pune</span>
                     <h3>Youth Transformation</h3>
@@ -445,7 +447,7 @@
                     <div class='media-slot'>
                         <span class='media-slot__label'>Retreat · Goa</span>
                         <div class='media-slot__frame media-slot__frame--16x9'>
-                            <img src="./assets/images/Goa.jpg" alt="Short description of the image" loading="lazy">
+                            <picture><source srcset='./assets/images/Goa.webp' type='image/webp'><img src="./assets/images/Goa.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                         </div>
                     </div><span class='badge'>Goa</span>
                     <h3>Silence Retreat</h3>
@@ -466,7 +468,7 @@
             </div>
             <div class='media-slot reveal' style='margin-bottom: 2rem; max-width: 960px; margin-left: auto; margin-right: auto;'>
                 <div class='media-slot__frame media-slot__frame--16x9'>
-                    <img src="./assets/images/Worldmap.jpg" alt="Short description of the image" loading="lazy">
+                    <picture><source srcset='./assets/images/Worldmap.webp' type='image/webp'><img src="./assets/images/Worldmap.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                 </div>
             </div>
             <div class='dark-grid'>
@@ -474,7 +476,7 @@
                     <div class='media-slot' style='margin-bottom: 0.75rem;'>
                         <span class='media-slot__label' style='color: var(--gold-400);'>India</span>
                         <div class='media-slot__frame media-slot__frame--16x9'>
-                            <img src="./assets/images/India.jpg" alt="Short description of the image" loading="lazy">
+                            <picture><source srcset='./assets/images/India.webp' type='image/webp'><img src="./assets/images/India.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                         </div>
                     </div>
                     <h3>India</h3>
@@ -484,7 +486,7 @@
                     <div class='media-slot' style='margin-bottom: 0.75rem;'>
                         <span class='media-slot__label' style='color: var(--gold-400);'>Dubai</span>
                         <div class='media-slot__frame media-slot__frame--16x9'>
-                            <img src="./assets/images/Dubai.jpg" alt="Short description of the image" loading="lazy">
+                            <picture><source srcset='./assets/images/Dubai.webp' type='image/webp'><img src="./assets/images/Dubai.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                         </div>
                     </div>
                     <h3>Dubai</h3>
@@ -494,7 +496,7 @@
                     <div class='media-slot' style='margin-bottom: 0.75rem;'>
                         <span class='media-slot__label' style='color: var(--gold-400);'>Vietnam</span>
                         <div class='media-slot__frame media-slot__frame--16x9'>
-                           <img src="./assets/images/Vietnam.jpg" alt="Short description of the image" loading="lazy">
+                           <picture><source srcset='./assets/images/Vietnam.webp' type='image/webp'><img src="./assets/images/Vietnam.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                         </div>
                     </div>
                     <h3>Vietnam</h3>
@@ -504,7 +506,7 @@
                     <div class='media-slot' style='margin-bottom: 0.75rem;'>
                         <span class='media-slot__label' style='color: var(--gold-400);'>UAE</span>
                         <div class='media-slot__frame media-slot__frame--16x9'>
-                           <img src="./assets/images/UAE.jpg" alt="Short description of the image" loading="lazy">
+                           <picture><source srcset='./assets/images/UAE.webp' type='image/webp'><img src="./assets/images/UAE.jpg" alt="Short description of the image" loading="lazy" decoding='async'></picture>
                         </div>
                     </div>
                     <h3>UAE</h3>
@@ -520,7 +522,7 @@
             </div>
             <div class='media-slot reveal' style='margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;'>
                 <div class='media-slot__frame media-slot__frame--16x9'>
-                    <img src="./assets/images/knowledgehub.jpg" alt="knowledgehub" loading="lazy">
+                    <picture><source srcset='./assets/images/knowledgehub.webp' type='image/webp'><img src="./assets/images/knowledgehub.jpg" alt="knowledgehub" loading="lazy" decoding='async'></picture>
                 </div>
             </div>
             <div class='topic-tiles'><a class='topic-tile reveal' href='./knowledge/spiritual-wisdom.html'>Spiritual
@@ -539,7 +541,7 @@
             <div class='media-slot reveal' style='margin-bottom: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;'>
                 <span class='media-slot__label'>Community · togetherness</span>
                 <div class='media-slot__frame media-slot__frame--16x9'>
-                    <img src="./assets/images/togetherness.jpg" alt="togetherness" loading="lazy">
+                    <picture><source srcset='./assets/images/togetherness.webp' type='image/webp'><img src="./assets/images/togetherness.jpg" alt="togetherness" loading="lazy" decoding='async'></picture>
                 </div>
             </div>
             <div class='dark-grid'>
@@ -558,6 +560,31 @@
             </div>
             <div style='text-align:center; margin-top:2rem;'><a href='./community/index.html'
                     class='btn btn--outline-light'>Explore Community</a></div>
+        </div>
+    </section>
+    <section class='section--paper reveal'>
+        <div class='container'>
+            <div class='about-intro__grid' style='align-items: center;'>
+                <div class='about-intro__text reveal'>
+                    <span class='label'>Live Webinars</span>
+                    <h2>Life Reset™ Masterclass</h2>
+                    <p>Join Sarvesh Mishra for a free 90-minute live online session — understand your life as a connected system, take the Life Reset Assessment™, and discover a practical path from unconscious patterns to conscious evolution.</p>
+                    <div class='hero__meta' style='display:flex; gap:2rem; margin: 1.25rem 0 1.5rem; font-family: var(--font-body);'>
+                        <div><span style='display:block; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--earth-500);'>Date</span><strong>25 July 2026</strong></div>
+                        <div><span style='display:block; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--earth-500);'>Time</span><strong>6:00 PM IST</strong></div>
+                        <div><span style='display:block; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color: var(--earth-500);'>Mode</span><strong>Live Online</strong></div>
+                    </div>
+                    <a href='./webinar/index.html' class='btn btn--primary'>Reserve Your Free Seat</a>
+                </div>
+                <div class='about-intro__aside reveal reveal--delay-1'>
+                    <div class='media-slot'>
+                        <span class='media-slot__label'>Webinar · Life Reset™</span>
+                        <div class='media-slot__frame media-slot__frame--4x5 media-slot__frame--photo'>
+                            <picture><source srcset='./assets/images/founder-placeholder.webp' type='image/webp'><img src='./assets/images/founder-placeholder.jpg' alt='Sarvesh Mishra — Life Reset Masterclass with CureSoulLife' loading='lazy' decoding='async'></picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class='section--void reveal' style='text-align:center; border-top: 1px solid rgba(255,255,255,0.06);'>
@@ -583,15 +610,14 @@
             </svg></div>
         <div class='container'>
             <div class='footer__top'>
-                <div class='footer__brand'><img src='./assets/images/logo.png' alt='CureSoulLife'
-                        style='filter: brightness(0) invert(1) opacity(0.92);'>
+                <div class='footer__brand'><picture><source srcset='./assets/images/logo.webp' type='image/webp'><img src='./assets/images/logo.png' alt='CureSoulLife'
+                        style='filter: brightness(0) invert(1) opacity(0.92);' loading='lazy' decoding='async'></picture>
                     <p class='footer__tagline'>सृजन, साधना और मोक्ष</p>
                     <p>A global institution for human consciousness and transformation.</p>
                 </div>
                 <div class='footer__col'>
                     <h5>Know Us</h5><a href='./about/index.html'>About</a><a href='./founder/index.html'>Founder</a><a
-                        href='./about/mission.html'>Mission</a><a href='./about/philosophy.html'>Philosophy</a><a
-                        href='./research/index.html'>Research</a>
+                        href='./about/mission.html'>Mission</a><a href='./about/philosophy.html'>Philosophy</a>
                 </div>
                 <div class='footer__col'>
                     <h5>Explore</h5><a href='./framework/index.html'>Framework</a><a
@@ -600,7 +626,7 @@
                         href='./practices/index.html'>Inner Practices</a>
                 </div>
                 <div class='footer__col'>
-                    <h5>Programs</h5><a href='./retreats/index.html'>All Retreats</a><a
+                    <h5>Programs</h5><a href='./webinar/index.html'>Webinars</a><a href='./retreats/index.html'>All Retreats</a><a
                         href='./centers/index.html'>Global Centers</a><a href='./community/index.html'>Community</a><a
                         href='./global-initiatives/index.html'>Initiatives</a>
                 </div>
@@ -620,8 +646,7 @@
             </div>
         </div>
     </footer>
-    <script src='./assets/js/main.js'></script>
-    <script src='./assets/js/scroll-reveal.js'></script>
+    <script src='./assets/js/main.js' defer></script>
 </body>
 
 </html>
