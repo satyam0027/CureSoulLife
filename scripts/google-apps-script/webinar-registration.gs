@@ -58,7 +58,7 @@ function handleSubmission_(data) {
     data.assessment_score || '',
     data.registration_fee || '',
     data.payment_status || '',
-    data.source || 'Wellbeing Masterclass'
+    data.source || 'Wellness Masterclass'
   ]);
 
   var ss = getSpreadsheet_();

@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', function () {
         assessment_score: document.getElementById('assessment-score').value || '',
         registration_fee: String((window.WEBINAR_CONFIG && window.WEBINAR_CONFIG.registrationFeeInr) || 99),
         payment_status: getPaymentLink().trim() ? 'pending_payment' : 'no_gateway_configured',
-        source: 'Wellbeing Masterclass'
+        source: 'Wellness Masterclass'
       };
 
       var paymentLink = getPaymentLink().trim();
