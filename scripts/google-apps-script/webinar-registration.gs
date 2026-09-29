@@ -12,7 +12,8 @@
 // REQUIRED: paste your Google Sheet ID here
 var SPREADSHEET_ID = '';
 
-var SHEET_NAME = 'Registrations';
+// Tab name must match your Google Sheet tab exactly (case and spelling).
+var SHEET_NAME = '16th oct webinnar registrion';
 
 function doGet(e) {
   try {
@@ -55,7 +56,9 @@ function handleSubmission_(data) {
     data.city || '',
     data.profession || '',
     data.assessment_score || '',
-    data.source || 'Life Reset Masterclass'
+    data.registration_fee || '',
+    data.payment_status || '',
+    data.source || 'Wellbeing Masterclass'
   ]);
 
   var ss = getSpreadsheet_();
@@ -86,7 +89,10 @@ function getSheet_() {
   var sheet = ss.getSheetByName(SHEET_NAME);
 
   if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
+    throw new Error(
+      'Sheet tab not found: "' + SHEET_NAME + '". ' +
+      'Rename your tab to match SHEET_NAME in Apps Script, or update SHEET_NAME to match your tab.'
+    );
   }
 
   return sheet;
@@ -102,9 +108,11 @@ function ensureHeaders_(sheet) {
       'City',
       'Profession',
       'Assessment Score',
+      'Registration Fee',
+      'Payment Status',
       'Source'
     ]);
-    sheet.getRange(1, 1, 1, 8).setFontWeight('bold');
+    sheet.getRange(1, 1, 1, 10).setFontWeight('bold');
   }
 }
 

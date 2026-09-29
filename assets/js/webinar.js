@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var regSubmit = document.getElementById('reg-submit');
     var regSuccess = document.getElementById('reg-success');
     var regTrustBelow = document.querySelector('.reg-trust-below');
-    var defaultSubmitLabel = regSubmit ? regSubmit.textContent : 'Reserve My Free Seat';
+    var defaultSubmitLabel = regSubmit ? regSubmit.textContent : 'Reserve My Seat – ₹99';
 
     function showRegError(message) {
       if (!regError) return;
@@ -191,12 +191,47 @@ document.addEventListener('DOMContentLoaded', function () {
       regSubmit.classList.toggle('is-loading', isSubmitting);
     }
 
+    function getPaymentLink() {
+      return (window.WEBINAR_CONFIG && window.WEBINAR_CONFIG.razorpayPaymentLink) || '';
+    }
+
+    function getThankYouPageUrl() {
+      var cfg = window.WEBINAR_CONFIG || {};
+      if (cfg.thankYouPageUrl && String(cfg.thankYouPageUrl).trim()) {
+        return String(cfg.thankYouPageUrl).trim();
+      }
+      return new URL('welcome.html', window.location.href).href;
+    }
+
+    function buildPaymentRedirectUrl(baseLink, payload) {
+      try {
+        var url = new URL(baseLink);
+        if (payload.email) url.searchParams.set('email', payload.email);
+        if (payload.mobile) {
+          var phone = payload.mobile.replace(/\s/g, '');
+          url.searchParams.set('phone', phone);
+        }
+        if (payload.full_name) url.searchParams.set('name', payload.full_name);
+        return url.toString();
+      } catch (err) {
+        return baseLink;
+      }
+    }
+
+    function redirectToPayment(payload) {
+      var paymentLink = getPaymentLink().trim();
+      if (!paymentLink) return false;
+      if (regSubmit) regSubmit.textContent = 'Redirecting to payment…';
+      window.location.assign(buildPaymentRedirectUrl(paymentLink, payload));
+      return true;
+    }
+
     function showRegSuccess() {
       regForm.style.display = 'none';
       if (regTrustBelow) regTrustBelow.style.display = 'none';
       if (regSuccess) regSuccess.classList.add('active');
       setTimeout(function () {
-        window.location.href = 'welcome.html';
+        window.location.href = getThankYouPageUrl();
       }, 1600);
     }
 
@@ -292,14 +327,18 @@ document.addEventListener('DOMContentLoaded', function () {
         city: (document.getElementById('city').value || '').trim(),
         profession: document.getElementById('profession').value || '',
         assessment_score: document.getElementById('assessment-score').value || '',
-        source: 'Life Reset Masterclass'
+        registration_fee: String((window.WEBINAR_CONFIG && window.WEBINAR_CONFIG.registrationFeeInr) || 99),
+        payment_status: getPaymentLink().trim() ? 'pending_payment' : 'no_gateway_configured',
+        source: 'Wellbeing Masterclass'
       };
 
       setSubmitting(true);
 
       submitRegistration(payload)
         .then(function () {
-          showRegSuccess();
+          if (!redirectToPayment(payload)) {
+            showRegSuccess();
+          }
         })
         .catch(function () {
           showRegError('Could not save your registration. In Apps Script, set SPREADSHEET_ID, run testWriteRow(), then redeploy.');
