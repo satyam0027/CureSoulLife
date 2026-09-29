@@ -252,7 +252,8 @@ document.addEventListener('DOMContentLoaded', function () {
       return text.indexOf('"saved":true') !== -1 || text.indexOf('"saved": true') !== -1;
     }
 
-    function submitViaHiddenForm(payload, scriptUrl) {
+    function submitViaHiddenForm(payload, scriptUrl, waitMs) {
+      var maxWait = typeof waitMs === 'number' ? waitMs : 1200;
       return new Promise(function (resolve, reject) {
         var iframe = document.getElementById('reg-sheet-frame');
         var tempForm = document.createElement('form');
@@ -283,8 +284,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(tempForm);
         tempForm.submit();
 
-        setTimeout(function () { finish(true); }, 2500);
+        setTimeout(function () { finish(true); }, maxWait);
       });
+    }
+
+    /** Save to Sheets without waiting (browser completes request during Razorpay redirect). */
+    function saveRegistrationInBackground(payload, scriptUrl) {
+      var query = scriptUrl + '?' + buildParams(payload).toString();
+      fetch(query, { method: 'GET', keepalive: true, mode: 'no-cors' }).catch(function () {});
     }
 
     function submitRegistration(payload) {
@@ -332,13 +339,18 @@ document.addEventListener('DOMContentLoaded', function () {
         source: 'Wellbeing Masterclass'
       };
 
+      var paymentLink = getPaymentLink().trim();
       setSubmitting(true);
+
+      if (paymentLink) {
+        saveRegistrationInBackground(payload, scriptUrl);
+        redirectToPayment(payload);
+        return;
+      }
 
       submitRegistration(payload)
         .then(function () {
-          if (!redirectToPayment(payload)) {
-            showRegSuccess();
-          }
+          showRegSuccess();
         })
         .catch(function () {
           showRegError('Could not save your registration. In Apps Script, set SPREADSHEET_ID, run testWriteRow(), then redeploy.');
