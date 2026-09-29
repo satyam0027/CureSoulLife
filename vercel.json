@@ -1,5 +1,34 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "soullife.org" }],
+      "destination": "https://www.curesoullife.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.soullife.org" }],
+      "destination": "https://www.curesoullife.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/webinar/",
+      "destination": "/webinar",
+      "permanent": true
+    },
+    {
+      "source": "/webinar/welcome/",
+      "destination": "/webinar/welcome",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    { "source": "/webinar", "destination": "/webinar/index.html" },
+    { "source": "/webinar/welcome", "destination": "/webinar/welcome.html" }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

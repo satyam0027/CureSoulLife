@@ -8,6 +8,6 @@ window.WEBINAR_CONFIG = {
    * After successful payment, Razorpay redirects here (set the same URL in Dashboard:
    * Payment Links → your link → Redirect after payment). Leave empty to use /webinar/welcome on current site.
    */
-  thankYouPageUrl: '',
+  thankYouPageUrl: 'https://www.curesoullife.org/webinar/welcome',
   registrationFeeInr: 99
 };
